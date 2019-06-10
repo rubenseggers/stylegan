@@ -29,8 +29,8 @@ def main():
     # Parameters
     rnd = np.random.RandomState(1)
     similarity = 505  # set similarity amount within one 'person'
-    n_persons = 10
-    n_img_per_person = 10
+    n_persons = 80
+    n_img_per_person = 1000
 
     os.makedirs(config.result_dir, exist_ok=True)
     for person_id in tqdm(range(n_persons)):
@@ -47,7 +47,7 @@ def main():
 
             # Save image.
             png_filename = os.path.join(config.result_dir, 'person_{}-img_{}.png'.format(person_id, img_id))
-            PIL.Image.fromarray(images[0], 'RGB').save(png_filename)
+            PIL.Image.fromarray(images[0], 'RGB').resize((64, 64)).save(png_filename)
 
 
 if __name__ == "__main__":
