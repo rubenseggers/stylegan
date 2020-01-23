@@ -42,8 +42,8 @@ def main():
         _G, _D, Gs = pickle.load(f)
 
     # Parameters.
-    target_dir = Path('/home/ruben/git/thesis/data/stylegan/v1')
-    n_users = 20
+    target_dir = Path('/home/ruben/git/thesis/data/stylegan/v3')
+    n_users = 10
     n_per_user = 10
     n_ratio = 0.2
     random.seed(420)
@@ -87,8 +87,8 @@ def main():
 
             # Save images.
             png_filename = os.path.join(out_dir, 'person_{}-img_{}.png'.format(person_id, img_id))
-            PIL.Image.fromarray(user_images[img_id], 'RGB').save(png_filename)
-            # PIL.Image.fromarray(user_images[person_id], 'RGB').resize((64, 64)).save(png_filename)
+            # PIL.Image.fromarray(user_images[img_id], 'RGB').save(png_filename)
+            PIL.Image.fromarray(user_images[img_id], 'RGB').resize((64, 64)).save(png_filename)
 
 
 if __name__ == "__main__":
